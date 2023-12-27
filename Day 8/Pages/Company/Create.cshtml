@@ -1,0 +1,36 @@
+﻿@page
+@model Day_8.Pages.Company.CreateModel
+@{
+}
+<div class="container">
+	<form method="post" >
+		<div asp-validation-summary="All"></div>
+		<div class="form-group">
+			<label asp-for="@Model.Instructors.InsId" class="form-label mt-4">Id</label>
+			<input asp-for="@Model.Instructors.InsId" class="form-control" />
+			<span asp-validation-for="@Model.Instructors.InsId" class="text-danger"></span>
+		</div>
+		<div class="form-group">
+			<label asp-for="@Model.Instructors.InsName" class="form-label mt-4">Name</label>
+			<input asp-for="@Model.Instructors.InsName" class="form-control" />
+			<span asp-validation-for="@Model.Instructors.InsName" class="text-danger"></span>
+		</div>
+		<div class="form-group">
+			<label asp-for="@Model.Instructors.InsDegree" class="form-label mt-4">Degree</label>
+			<input asp-for="@Model.Instructors.InsDegree" class="form-control" />
+			<span asp-validation-for="@Model.Instructors.InsDegree" class="text-danger"></span>
+		</div>
+		<div class="form-group">
+			<label asp-for="@Model.Instructors.DeptId" class="form-label mt-4">Department</label>
+			<select asp-for="@Model.Instructors.DeptId" asp-items="@ViewBag.Department" class="form-select"></select>
+			<span asp-validation-for="@Model.Instructors.InsDegree" class="text-danger"></span>
+		</div>
+		<div class="form-group">
+			<label asp-for="@Model.Instructors.Salary" class="form-label mt-4">Salary</label>
+			<input asp-for="@Model.Instructors.Salary" class="form-control" />
+			<span asp-validation-for="@Model.Instructors.Salary" class="text-danger"></span>
+		</div>
+		<br />
+		<button class="btn btn-outline-primary" type="submit">Create</button>
+	</form>
+</div>

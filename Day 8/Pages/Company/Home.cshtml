@@ -1,0 +1,61 @@
+﻿@page
+@model Day_8.Pages.Company.HomeModel
+@{
+}
+<br />
+
+<a class="btn btn-outline-primary" asp-page="Create">Add New Instructor</a>
+<div class="container">
+	<h1>All Instructor </h1>
+	@{
+		if (TempData["Alert"] != null)
+		{
+			<div class="alert alert-dismissible alert-warning">
+				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+				Student With Name : @TempData["Alert"].ToString() Is Created Successfully
+			</div>
+			
+		}
+	}
+	<table class="table">
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Degree</th>
+			<th>Department Id</th>
+			<th>Salary</th>
+			<th>Update</th>
+			<th>Delete</th>
+
+		</tr>
+		@foreach (var item in Model.Instructorss)
+		{
+			<tr>
+				<td>@item.InsId</td>
+				<td>@item.InsName</td>
+				@{
+					if(item.InsDegree == null)
+					{
+						<td>Not Have Degree</td>
+					}
+					else
+					{
+						<td>@item.InsDegree</td>
+					}
+				}
+				<td>@item.DeptId</td>
+				<td>@item.Salary</td>
+				<td>
+					<a class="btn btn-outline-success" asp-page="Update" asp-route-Id="@item.InsId">Update</a>
+				</td>
+				<td>
+					<form method="post">
+						<input type="submit" value="Delete" class="btn btn-outline-danger" asp-route-Id="@item.InsId">
+					</form>
+				</td>
+			</tr>
+
+		}
+
+	</table>
+</div>
